@@ -1,4 +1,4 @@
-# Corivo Character Rig Toolset: troubleshooting
+# Character Rig AI Toolset: troubleshooting
 
 | Symptom | Check |
 | --- | --- |

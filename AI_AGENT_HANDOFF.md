@@ -1,9 +1,9 @@
-# Corivo Character Rig Toolset: agent guide
+# Character Rig AI Toolset: agent guide
 
 ## Copy this setup prompt to your assistant
 
 ```text
-Set up the purchased Corivo Character Rig Toolset plugin for my Unreal Engine 5.8 project.
+Set up the purchased Character Rig AI Toolset plugin for my Unreal Engine 5.8 project.
 Find the .uproject and ask me to select it if there are several. Verify the plugin
 is already installed through Fab or in Project/Plugins/CharacterRigToolset.
 Enable the plugin and its declared dependencies without replacing other settings.
@@ -16,7 +16,7 @@ character_rig_toolset.toolsets.retarget.RetargetTools
 character_rig_toolset.toolsets.retarget_assets.RetargetAssetTools
 character_rig_toolset.toolsets.skeleton_rig.SkeletonRigTools
 character_rig_toolset.toolsets.skin_weights.SkinWeightTools
-Read https://github.com/ITemre/CharacterRigToolset/blob/main/README.md and the tool reference.
+Read https://github.com/ITemre/CharacterRigAIToolset/blob/main/README.md and the tool reference.
 Start with read-only inspection in a disposable project and show me the first result.
 ```
 

@@ -1,4 +1,4 @@
-# Corivo Character Rig Toolset
+# Character Rig AI Toolset
 
 Inspect and edit IK retargeting, skeletal structures, sockets, skin weights and Control Rig pose previews through native Unreal MCP tools.
 
@@ -64,7 +64,7 @@ This documentation accompanies release preparation. It is not a claim that Fab h
 
 ## Support
 
-Report reproducible problems through [GitHub issues](https://github.com/ITemre/CharacterRigToolset/issues). Include the engine version, plugin version, tool name, minimal arguments and error text. Remove credentials and private project data from reports.
+Report reproducible problems through [GitHub issues](https://github.com/ITemre/CharacterRigAIToolset/issues). Include the engine version, plugin version, tool name, minimal arguments and error text. Remove credentials and private project data from reports.
 
 ## Licence
 

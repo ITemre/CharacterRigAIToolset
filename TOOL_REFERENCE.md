@@ -1,4 +1,4 @@
-# Corivo Character Rig Toolset: tool reference
+# Character Rig AI Toolset: tool reference
 
 Operation names and descriptions below are taken from the selected plugin source. Query `describe_toolset` for the exact runtime schema, required fields and defaults. C++ metadata can alter wire names; use the runtime schema. Python toolset names retain their module and class names.
 
