@@ -1,6 +1,17 @@
 # Validation status
 
-Practical checks recorded on 27 October 2026, using Unreal Engine 5.8.4 / Win64 in isolated local projects. Production projects and the original backup ZIPs were unchanged.
+Practical checks recorded on 27 and 28 October 2026, using Unreal Engine 5.8.4 / Win64 in isolated local projects. Production projects and the original backup ZIPs were unchanged.
+
+## 1.0.1 (28 October 2026)
+
+Python-only change set (pose authoring and pose checks); the native CharacterRigPreview module is the 1.0.0 build.
+
+- Full plugin suite in the editor: 203 tests, 198 passed, 0 failed, 5 skipped (retarget fixtures and a live PIE session, as in 1.0.0).
+- New tests cover the neutral wrist (within 1 degree of the initial wrist, released with "wrist": "free"), hand rotations on top of the neutral wrist, finger groups curling every calibrated segment of one hand only, a far reach that recruits the clavicle, a near reach that does not, and scene geometry penetration reported with bone, actor and depth and cleared when the object moves away.
+- The floor trace fix was found by the new scene test: with a box over the stage origin the old trace reported the box top as the floor.
+- Practical poses on the Manny stage with their props in the level: sitting on a crate, pushing a crate with flat palms, both hands flat on a wall overhead. Each pose was corrected from the scene report until no penetration remained (one or two rounds), saved, exported as a verified AnimSequence and rendered. Pointing at full reach now solves with the clavicle recruited.
+- Known limits: a kneeling pose with the hand at knee height stays unreachable for this rig and is reported with the recruited controls named. Fingers have no collision proxies, so finger contact remains a visual check; a two-handed box carry was not convincing enough to show.
+- Walk and jog cycle presets built and verified unchanged.
 
 ## Technical and practical checks
 

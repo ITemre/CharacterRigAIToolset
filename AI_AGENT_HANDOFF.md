@@ -46,6 +46,24 @@ Please set up the "Character Rig AI Toolset" Unreal Engine plugin for me and con
 - Keep asset paths and file paths distinct. `/Game/...` is a package path, not a Windows filename.
 - Request operation-specific approval from your user for destructive changes or redistribution of assets.
 
+## Posing against scene objects
+
+Clean contact with props, walls and furniture comes from a check-and-correct loop, not from the
+first guess:
+
+1. Place the objects the character touches in the PoseLab level before posing (a crate to sit on,
+   a wall to lean on). The pose checks only see geometry that is in the level.
+2. Apply or save the pose, then read `checks.scene.intersections` in the report. Each entry names
+   the bone, the actor and an estimated depth; `inside: true` means the depth is a lower bound.
+3. Move each reported part out of the object by the reported depth plus 0.5 cm, along the
+   direction it came from (a hand on a wall moves back from the wall, a pelvis on a seat moves up),
+   and apply again. Repeat until `intersections` is empty; two or three rounds are usual.
+4. A hand target places the wrist. With the default neutral wrist the palm keeps its rest
+   orientation; add a hand `rotate` (for example `up` 80 to 140 for a palm flat on a wall in front)
+   and check it in the captures. Finger groups such as `fingers_r` curl whole fingers.
+5. Look at the four captures before accepting the pose. Fingers have no collision proxies, so
+   finger contact is a visual check.
+
 ## Product-specific constraints
 
 - Meshes, animations and Control Rig assets are supplied by the buyer. No character, animation pack or third-party content is included.

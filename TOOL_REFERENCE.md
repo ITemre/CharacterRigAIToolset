@@ -104,9 +104,15 @@ Args:
         rotate maps motions to nonnegative offsets in degrees (0..180), relative to
         initial controls, not absolute anatomical angles. target needs forward, right,
         up in character-space cm and places a hand, foot, pelvis or root bone origin.
+        A targeted hand keeps a neutral wrist (its rotate motions then bend the wrist from
+        neutral); "wrist":"free" keeps the control's own orientation instead. When a
+        target stalls, the solver recruits the clavicle and then the upper spine; the
+        report lists them under assists. Finger groups pose whole fingers with one bend
+        or straighten amount: "fingers_r", "fingers_l", or one finger like "index_r".
         Empty parts resets the initial pose. Optional contacts lists feet planted at their
         initial ground anchors, e.g. ["foot_l", "foot_r"]. Elbow/knee limits are enforced;
-        collision proxy penetration and estimated static balance are reported as warnings.
+        collision proxy penetration, penetration of scene geometry (props, crates, walls in
+        the level, with depth) and estimated static balance are reported as warnings.
 
 Returns:
     JSON report with controls, checks and framed front/side/top/three-quarter captures.
@@ -131,8 +137,10 @@ Args:
 stage_name: str
 ```
 
-Reports elbow/knee angles, sole contacts, collision proxy intersections and estimated
-static balance of the current rig pose. Does not change controls or write keys/assets.
+Reports elbow/knee angles, sole contacts, collision proxy intersections, penetration of
+scene geometry (static meshes such as props, crates and walls, with an estimated depth per
+bone) and estimated static balance of the current rig pose. Does not change controls or
+write keys/assets.
 Coverage and approximation methods are included; unchecked joints and geometry are explicit.
 
 Args:
@@ -196,7 +204,8 @@ Args:
         'spine'. Empty lists every body part.
 
 Returns:
-    One entry per control, sorted by body part.
+    One entry per control, sorted by body part. Finger groups (fingers_l, fingers_r and
+    one entry per finger such as index_r) are listed as well; they take bend or straighten.
 
 ## PoseProbeTools
 
