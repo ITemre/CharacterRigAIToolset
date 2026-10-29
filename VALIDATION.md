@@ -1,6 +1,13 @@
 # Validation status
 
-Practical checks recorded on 27 and 28 October 2026, using Unreal Engine 5.8.4 / Win64 in isolated local projects. Production projects and the original backup ZIPs were unchanged.
+Practical checks recorded on 27 to 29 October 2026, using Unreal Engine 5.8.4 / Win64 in isolated local projects. Production projects and the original backup ZIPs were unchanged.
+
+## Version 1.0.2 (29 October 2026)
+
+- Package for the Fab technical review: source only. No Binaries, no LICENSE file, no test code, no levels or sample assets.
+- Clean Win64 BuildPlugin with strict includes on the unpacked release ZIP, as Fab builds it: passed, no compiler warnings.
+- Buyer install path: the plugin built from the ZIP was installed into a fresh Blueprint-only project; the editor mounted it, registered all six toolsets and answered `list_toolsets`, `describe_toolset` and `list_poses` over the native MCP server.
+- The test suites used for earlier checks are internal and are no longer part of the package.
 
 ## 1.0.1 (28 October 2026)
 
